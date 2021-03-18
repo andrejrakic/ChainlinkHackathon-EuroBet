@@ -1,0 +1,35 @@
+{
+  "name": "chainlinkhackathon-eurobet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "compile": "truffle compile",
+    "test": "mocha --project ./tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrejrakic/ChainlinkHackathon-EuroBet.git"
+  },
+  "author": "Andrej",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrejrakic/ChainlinkHackathon-EuroBet/issues"
+  },
+  "homepage": "https://github.com/andrejrakic/ChainlinkHackathon-EuroBet#readme",
+  "dependencies": {
+    "@chainlink/contracts": "^0.1.6",
+    "@openzeppelin/contracts": "^3.4.1",
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^4.0.48",
+    "mocha": "^8.1.2",
+    "truffle": "^5.2.4",
+    "ts-node": "^9.1.1"
+  }
+}
