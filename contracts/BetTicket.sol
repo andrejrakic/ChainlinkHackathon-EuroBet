@@ -1873,16 +1873,37 @@ pragma solidity ^0.6.0;
 contract BetTicket is ERC721  {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
+    address private bettingContract;
+    address private admin;
 
-    constructor() ERC721("BetTicket", "BET") public {}
+    modifier onlyAdmin() {
+        require(msg.sender == admin, "BetTicket: ONLY ADMIN CAN CALL");
+        _;
+    }
 
-    function mint(address _to, bytes memory _tokenURI)  public returns(address tokenAddress, uint tokenId, bytes memory tokenUri) 
-    {
+    modifier onlyBettingContract() {
+        require(msg.sender == bettingContract, "BetTicket: CALLABLE ONLY FROM BETTING CONTRACT");
+        _;
+    }
+
+    constructor() ERC721("BetTicket", "BET") public {
+        admin = msg.sender;
+    }
+
+    function mint(address _to, bytes memory _tokenURI) public onlyBettingContract returns(address tokenAddress, uint tokenId, bytes memory tokenUri) {
         _tokenIds.increment();
         uint _tokenId = _tokenIds.current();
         _mint(_to, _tokenId);
         _setTokenURI(_tokenId, _tokenURI);
        
         return(address(this), _tokenId, _tokenURI);
+    }
+
+    function burn(uint tokenId) public onlyBettingContract {
+        _burn(tokenId);
+    }
+
+    function setBettingContract(address _bettingContract) public onlyAdmin {
+        bettingContract = _bettingContract;
     }
 }

@@ -7,16 +7,18 @@ import { betTicketFixture } from "./fixtures";
 use(solidity);
 // @dev We are assuming that imported OpenZeppelin's contracts are well audited so tests are just for our part of development
 
+const provider = new MockProvider();
+
 describe("Bet Ticket", async () => {
-    const provider = new MockProvider();
     const abiCoder = new AbiCoder();
-    const [admin] = provider.getWallets();
+    const [admin, euroBet] = provider.getWallets();
     const loadFixture = createFixtureLoader([admin], provider);
     let betTicket: Contract;
 
     beforeEach(async () => {
         const fixture = await loadFixture(betTicketFixture);
         betTicket = fixture.betTicket;
+        await betTicket.setBettingContract(euroBet.address);
     });
 
     it("should mint ERC 721 token properly", async () => {
@@ -26,11 +28,12 @@ describe("Bet Ticket", async () => {
 
         const tokenURI = abiCoder.encode(["uint", "uint", "string"], [stake, odd, bet]);
 
-        const betTicketCollectible = await betTicket.callStatic.mint(admin.address, tokenURI);
+        await expect(betTicket.mint(admin.address, tokenURI)).to.be.revertedWith("BetTicket: CALLABLE ONLY FROM BETTING CONTRACT");
+
+        const betTicketCollectible = await betTicket.connect(euroBet.address).callStatic.mint(admin.address, tokenURI);
         
         expect(betTicketCollectible.tokenAddress).to.equal(betTicket.address);
         expect(betTicketCollectible.tokenUri).to.equal(tokenURI);
         expect(betTicketCollectible.tokenId).to.equal(1);
     });
-
 });
