@@ -11,7 +11,7 @@ contract EuroBet is IEuroBet, ChainlinkClient, ReentrancyGuard {
 
     /// @dev Use storage slots efficiently
     string public winner;
-    string public endpoint;   // https://chainlinkapi.herokuapp.com/teams/?id=
+    string public endpoint;
     uint256 private odd;
     uint256 private fee;
     address private admin;
