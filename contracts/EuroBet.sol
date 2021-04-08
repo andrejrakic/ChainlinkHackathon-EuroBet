@@ -64,7 +64,7 @@ contract EuroBet is IEuroBet, ChainlinkClient, ReentrancyGuard {
         //     "id": "England",
         //     "odd": 5
         // }]
-        request.add("path", "odd");
+        request.add("path", "0.odd");
 
         emit OddRequestSent(oracle, fee, uri); 
 
@@ -144,6 +144,11 @@ contract EuroBet is IEuroBet, ChainlinkClient, ReentrancyGuard {
 
     function withdrawLink(address tokenAddress, uint amount) public onlyAdmin {
         IERC20(tokenAddress).transfer(msg.sender, amount);
+    }
+
+
+    function setEndpoint(string memory _endpoint) public onlyAdmin {
+        endpoint = _endpoint;
     }
 
 

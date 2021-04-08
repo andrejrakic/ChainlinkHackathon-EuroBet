@@ -23,7 +23,7 @@
   "dependencies": {
     "@chainlink/contracts": "^0.1.6",
     "@openzeppelin/contracts": "^3.4.1",
-    "@truffle/hdwallet-provider": "^1.2.4",
+    "@truffle/hdwallet-provider": "^1.2.3",
     "@types/chai": "^4.2.15",
     "@types/mocha": "^8.2.1",
     "chai": "^4.3.4",
