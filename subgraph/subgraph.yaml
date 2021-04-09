@@ -1,0 +1,52 @@
+specVersion: 0.0.2
+description: Analytics for UEFA Euro Winner Decentralized Betting Platform, developed at Chainlink Hackathon
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: EuroBet
+    network: kovan
+    source:
+      address: '0xa530D2026341B720ec367CD52df49417aA861225'
+      abi: EuroBet
+      startBlock: 24197902
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - BettingClosed
+        - CashOut
+        - ChainlinkCancelled
+        - ChainlinkFulfilled
+        - ChainlinkRequested
+        - EtherReceived
+        - NewBet
+        - OddRequestReceived
+        - OddRequestSent
+        - Winner
+      abis:
+        - name: EuroBet
+          file: ./abis/EuroBet.json
+      eventHandlers:
+        - event: BettingClosed()
+          handler: handleBettingClosed
+        - event: CashOut(uint256,uint256,uint256)
+          handler: handleCashOut
+        - event: ChainlinkCancelled(indexed bytes32)
+          handler: handleChainlinkCancelled
+        - event: ChainlinkFulfilled(indexed bytes32)
+          handler: handleChainlinkFulfilled
+        - event: ChainlinkRequested(indexed bytes32)
+          handler: handleChainlinkRequested
+        - event: EtherReceived(address,uint256)
+          handler: handleEtherReceived
+        - event: NewBet(uint256,uint256,string,address,uint256,bytes)
+          handler: handleNewBet
+        - event: OddRequestReceived(bytes32,uint256)
+          handler: handleOddRequestReceived
+        - event: OddRequestSent(address,uint256,string)
+          handler: handleOddRequestSent
+        - event: Winner(string)
+          handler: handleWinner
+      file: ./src/mapping.ts

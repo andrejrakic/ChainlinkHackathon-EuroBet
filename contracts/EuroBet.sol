@@ -113,7 +113,7 @@ contract EuroBet is IEuroBet, ChainlinkClient, ReentrancyGuard {
         (bool sent, ) = msg.sender.call{ value: cashOutAmount }("");
         require(sent, "EuroBet::cashOut: FAILED TO SEND ETHER");
 
-        emit CashOut(cashOutAmount,  odd, tokenId);
+        emit CashOut(cashOutAmount, odd, tokenId);
     }
 
 

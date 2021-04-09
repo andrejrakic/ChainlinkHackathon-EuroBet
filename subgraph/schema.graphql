@@ -1,0 +1,43 @@
+type Betting @entity {
+	id: ID! # contract address
+	name: String
+	description: String
+	isActive: Boolean
+	winner: String
+	bets: [Bet!]
+}
+
+type Bet @entity {
+	id: ID! # nft id
+	etherAmount: BigInt
+	odd: BigInt
+	teamName: String
+	nftBettingTicket: NFTBetTicket
+	chainlinkRequest: ChainlinkRequest
+	timestamp: BigInt
+	isWinningBet: Boolean
+	cashOutAmount: BigInt
+}
+
+type NFTBetTicket @entity {
+	id: ID! # tx hash
+	contractAddress: Bytes
+	tokenId: BigInt
+	tokenUri: Bytes
+	etherAmount: BigInt
+	odd: BigInt
+	teamName: String
+	creator: Bytes
+}
+
+type ChainlinkRequest @entity {
+	id: ID!
+	oracleAddress: Bytes
+	linkFee: BigInt
+	requestId: Bytes
+	endpoint: String
+	resultOdd: BigInt
+	requestedTimestamp: BigInt
+	fulfilledTimestamp: BigInt
+	canceledTimestamp: BigInt
+}
