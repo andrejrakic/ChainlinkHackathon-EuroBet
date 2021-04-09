@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ChainlinkHackathon-EuroBet/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/ChainlinkHackathon-EuroBet/static/js/main.fb2597a0.chunk.js",
+    "main.js.map": "/ChainlinkHackathon-EuroBet/static/js/main.fb2597a0.chunk.js.map",
+    "runtime-main.js": "/ChainlinkHackathon-EuroBet/static/js/runtime-main.86bb74c6.js",
+    "runtime-main.js.map": "/ChainlinkHackathon-EuroBet/static/js/runtime-main.86bb74c6.js.map",
+    "static/js/2.9f44fb8d.chunk.js": "/ChainlinkHackathon-EuroBet/static/js/2.9f44fb8d.chunk.js",
+    "static/js/2.9f44fb8d.chunk.js.map": "/ChainlinkHackathon-EuroBet/static/js/2.9f44fb8d.chunk.js.map",
+    "static/js/3.bae1a857.chunk.js": "/ChainlinkHackathon-EuroBet/static/js/3.bae1a857.chunk.js",
+    "static/js/3.bae1a857.chunk.js.map": "/ChainlinkHackathon-EuroBet/static/js/3.bae1a857.chunk.js.map",
+    "index.html": "/ChainlinkHackathon-EuroBet/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/ChainlinkHackathon-EuroBet/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.9f44fb8d.chunk.js.LICENSE.txt": "/ChainlinkHackathon-EuroBet/static/js/2.9f44fb8d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.86bb74c6.js",
+    "static/js/2.9f44fb8d.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.fb2597a0.chunk.js"
+  ]
+}
