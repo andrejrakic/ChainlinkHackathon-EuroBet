@@ -18,7 +18,7 @@ Once betting is finished and we finally find out which team is a champion, one c
 
 ## Live Demo
 
-<img height="40" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F1%2F18%2FIpfs-logo-1024-ice-text.png&f=1&nofb=1" />
+<img height="50" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F1%2F18%2FIpfs-logo-1024-ice-text.png&f=1&nofb=1" />
 
 React Dapp _(make sure to have Metamask installed and connected to Kovan testnet)_ available at
 
@@ -50,6 +50,8 @@ Since odds change during time, one can not write it on chain via mapping and the
 Subgraph for indexing data: https://thegraph.com/explorer/subgraph/andrejrakic/euro-bet
 
 ## Unit tests
+
+<img height="30" src="https://assets-global.website-files.com/5f6b7190899f41fb70882d08/60491e71bf5ce3b2cbadca5d_hardhat-logo.png" />
 
 _Make sure to install all necessary dependencies_
 
